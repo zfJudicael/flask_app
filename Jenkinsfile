@@ -10,12 +10,12 @@ pipeline {
                     labels:
                         component: ci
                 spec:
-                containers:
-                    - name: python
-                      image: python:3
-                      command:
-                        - cat
-                      tty: true
+                    containers:
+                        - name: python
+                          image: python:3
+                          command:
+                              - cat
+                          tty: true
             """
         }
     }
