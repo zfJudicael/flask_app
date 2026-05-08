@@ -37,15 +37,15 @@ pipeline {
 
     post {
         always {
-            echo 'Pipeline terminé....'
+            echo 'Pipeline terminé...'
         }
 
         success {
-            echo 'Tests passés....'
+            echo 'Tests passés...'
         }
 
         failure {
-            echo 'Tests échoués....'
+            echo 'Tests échoués...'
         }
 
     }
