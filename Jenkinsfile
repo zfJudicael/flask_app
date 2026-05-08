@@ -49,8 +49,8 @@ pipeline {
         stage('Build image') {
             steps {
                 container('docker') {
-                    sh "docker build -t localhost:4000/pythontest:latest ."
-                    sh "docker push localhost:4000/pythontest:latest"
+                    sh "docker build -t host.minikube.internal:4000/pythontest:latest ."
+                    sh "docker push host.minikube.internal:4000/pythontest:latest"
                 }
             }
         }
