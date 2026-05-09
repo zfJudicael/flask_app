@@ -24,6 +24,13 @@ pipeline {
                                   volumeMounts:
                                     - mountPath: /var/run/docker.sock
                                       name: docker-sock
+
+                                - name: kubectl
+                                  image: bitnami/kubectl:1.35
+                                  command:
+                                    - cat
+                                  tty: true
+
                             volumes:
                                 - name: docker-sock
                                   hostPath:
@@ -51,6 +58,15 @@ pipeline {
                 container('docker') {
                     sh "docker build -t host.minikube.internal:4000/pythontest:latest ."
                     sh "docker push host.minikube.internal:4000/pythontest:latest"
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                container('kubectl') {
+                    sh "kubectl apply -f ./kubernetes/deployment.yaml"
+                    sh "kubectl apply -f ./kubernetes/service.yaml"
                 }
             }
         }

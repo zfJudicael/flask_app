@@ -17,8 +17,8 @@ spec:
         app: pythontest
     spec:
       containers:
-        image: localhost:4000/pythontest:latest
-        name: pythontest
-        ports:
-        - containerPort: 5000
-          name: microport
+        - image: host.minikube.internal:4000/pythontest:latest
+          name: pythontest
+          ports:
+            - containerPort: 5000
+              name: microport
