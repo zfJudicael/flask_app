@@ -26,7 +26,7 @@ pipeline {
                                       name: docker-sock
 
                                 - name: kubectl
-                                  image: bitnami/kubectl:1.35
+                                  image: bitnami/kubectl:1.35.3
                                   command:
                                     - cat
                                   tty: true
